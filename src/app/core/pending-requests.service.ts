@@ -1,0 +1,1 @@
+import {Injectable,computed,signal} from '@angular/core';@Injectable({providedIn:'root'})export class PendingRequestsService{private count=signal(0);active=computed(()=>this.count()>0);start(){this.count.update(x=>x+1)}finish(){this.count.update(x=>Math.max(0,x-1))}}

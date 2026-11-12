@@ -1,9 +1,9 @@
 {
-  "name": "smartrecruit-stitch-simulation",
+  "name": "smartrecruit-frontend",
   "version": "3.0.0",
   "private": true,
   "scripts": {
-    "start": "ng serve",
+    "start": "ng serve --proxy-config src/proxy.conf.json",
     "build": "ng build"
   },
   "dependencies": {

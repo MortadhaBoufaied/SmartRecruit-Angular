@@ -1,6 +1,6 @@
-# SmartRecruit Stitch Angular Simulation v3
+# SmartRecruit Angular frontend
 
-This project converts the supplied Stitch HTML concepts into a structured Angular 18 frontend simulation. It preserves the Stitch visual language: Inter and Plus Jakarta Sans typography, blue enterprise palette, compact information density, role switcher, explainable matching panels, recruiter Kanban, and platform-governance views.
+Angular 18 frontend for SmartRecruit. It uses the Spring API Gateway for identity, recruitment, candidate CV/AI, notifications, subscriptions and analytics APIs. Job and interview screens remain connected to their gateway routes while those backend services are being completed.
 
 ## Run
 
@@ -9,21 +9,17 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200`.
+Open `http://localhost:4200`. The Angular dev server proxies `/api` requests to `http://localhost:8080`.
+
+For the Nginx container, set `API_GATEWAY_HOST` to the gateway host and port on the same Docker network. It defaults to `api-gateway:8080`.
 
 ## Main routes
 
-- `/` public recruitment portal
-- `/login` simulated authentication and role selection
-- `/dashboard` candidate dashboard
-- `/jobs` job discovery and detailed explainable matching
-- `/workspace` recruiter dashboard
-- `/pipeline` recruiter Kanban and candidate dossier
-- `/admin` platform administrator governance
-- `/applications`, `/interviews`, `/profile`, `/notifications`, `/support`, `/settings`
+- `/jobs` public job search
+- `/login` registration and authentication
+- `/dashboard`, `/profile`, `/cvs`, `/applications`, `/notifications`
+- `/recruiter`, `/interviews`, `/subscriptions`, `/analytics`, `/admin`
 
-## Simulated services
+## Integrated service areas
 
-Authentication, role switching, candidate profile, CV parsing, job search, recommendation and matching, saved jobs, applications, candidate pipeline, interviews, notifications, company verification, moderation, audit activity, support, account preferences, and platform governance.
-
-All displayed records are fictional. Data is stored in the frontend service and can later be replaced with Angular HttpClient calls to Spring Boot APIs.
+Identity and profile management, recruiter approval, job search and applications, private CV upload/download and ATS scanning, notifications, subscription lifecycle and billing history, recruiter analytics, and PDF reports call backend APIs. ATS scanning uses the backend's local deterministic analyzer; payments use its mock provider until real external providers are configured.
